@@ -30,13 +30,13 @@ module.exports = {
 		static: {
 			directory: path.join(__dirname, "/public/"),
 		},
-		static: true,
-		historyApiFallback: true,
-		port: 9750,
-		open: true,
-		client: {
-			overlay: true,
-		},
+		// static: true,
+		// historyApiFallback: true,
+		// port: 9750,
+		// open: true,
+		// client: {
+		// 	overlay: true,
+		// },
 	},
 	cache: {
 		type: 'filesystem'
