@@ -1,8 +1,7 @@
 const webpack = require("webpack");
 const chalk = require("chalk");
 
-const config = require("../webpack.config.js");
-
+const config = require("./config/webpack.prod.js");
 const compiler = webpack(config);
 
 compiler.run((error, stats) => {

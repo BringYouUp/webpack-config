@@ -3,10 +3,10 @@ const DevServer = require("webpack-dev-server")
 const hot = require("webpack-hot-middleware")
 const chalk = require("chalk");
 
-const config = require("../webpack.config.js");
+const devConfig = require("./config/webpack.dev.js");
 const { HOST, PORT } = require("../webpack-consts")
 
-const compiler = webpack(config);
+const compiler = webpack(devConfig);
 
 const server = new DevServer({
 	host: HOST,
@@ -29,7 +29,7 @@ const server = new DevServer({
 	// }
 }, compiler)
 
-server.listen(PORT, HOST, () => {
+server.start(PORT, HOST, () => {
 	console.log(
 		`${chalk.blueBright("SERVER LISTENING ON")} ${chalk.blueBright(`https://${HOST}:${PORT}`)}
 		`

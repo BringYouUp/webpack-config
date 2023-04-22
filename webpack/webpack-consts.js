@@ -6,3 +6,5 @@ exports.SOURCE_DIRECTORY = resolve(PROJECT_ROOT, './src')
 exports.BUILD_DIRECTORY = resolve(PROJECT_ROOT, './build')
 exports.HOST = "localhost"
 exports.PORT = 9075
+exports.DEVELOPMENT = "development"
+exports.PRODUCTION = "production"

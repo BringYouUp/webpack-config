@@ -1,12 +1,13 @@
 *
 !.gitignore
 !.babelrc
+!babelrc.js
 !package.json
 !package-lock.json
 !README.MD
 !tsconfig.json
 !webpack
-!webpack/*
+!webpack/**/*
 !postcss.config.js
 !webpack-consts.js
 !webpack.config.js
