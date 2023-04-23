@@ -140,10 +140,10 @@
 			"@services/*": ["services/*"],
 			"@store/*": ["store/*"],
 			"@styles/*": ["styles/*"],
-			"@types/*": ["types/*"],
+			"@types/*": ["types"],
 			"@utils/*": ["utils/*"],
 		}
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "./globals.d.ts"],
 	"exclude": ["node_modules"]
 }

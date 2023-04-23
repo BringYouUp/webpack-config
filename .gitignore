@@ -1,6 +1,6 @@
 *
 !.gitignore
-!.babelrc
+!babel.config.js
 !babelrc.js
 !package.json
 !package-lock.json
