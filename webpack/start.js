@@ -1,16 +1,15 @@
-const webpack = require("webpack");
-const DevServer = require("webpack-dev-server")
-const chalk = require("chalk");
+import webpack from "webpack"
+import DevServer from "webpack-dev-server"
+import chalk from "chalk"
 
-const devConfig = require("./config/webpack.dev.js");
-const { HOST, PORT } = require("./webpack-consts")
+import devConfig from "./config/webpack.dev"
+import { HOST, PORT } from "./webpack-consts"
 
 const compiler = webpack(devConfig);
 
 const server = new DevServer({
 	host: HOST,
 	port: PORT,
-	hot: true,
 	open: true,
 	liveReload: true,
 	historyApiFallback: true,
@@ -34,3 +33,10 @@ server.start(PORT, HOST, () => {
 		`
 	)
 })
+
+const logInternalIPs = async () => {
+  const localIPv4 = await DevServer.internalIP('v4');
+  console.log('Local IPv4 address:', localIPv4);
+};
+
+logInternalIPs();

@@ -105,7 +105,7 @@
 	"compilerOptions": {
 		"target": "es6",
 		"lib": [
-				"DOM", "ES6", "DOM.Iterable", "ScriptHost"
+				"DOM", "ES6", "DOM.Iterable", "ScriptHost", "es5", "es2015"
 		],
 		"allowSyntheticDefaultImports": true,
 		"allowJs": true,
@@ -115,10 +115,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-jsx",
 		"isolatedModules": false,
-		"module": "ES6",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmit": false,
-		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true, 
 		"noUnusedLocals": true,                          /* Enable error reporting for expressions and declarations with an implied 'any' type. */

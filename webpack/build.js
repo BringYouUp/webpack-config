@@ -1,7 +1,7 @@
-const webpack = require("webpack");
-const chalk = require("chalk");
+import webpack from "webpack"
+import chalk from "chalk"
 
-const config = require("./config/webpack.prod.js");
+import config from "./config/webpack.prod"
 const compiler = webpack(config);
 
 compiler.run((error, stats) => {

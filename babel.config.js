@@ -6,14 +6,8 @@ module.exports = api => {
 
 	api.cache.never()
 
-
 	return {
 		presets: [
-			[ '@babel/preset-react',
-				{
-					runtime: "automatic"
-				}
-			],
 			[
 				"@babel/preset-env",
 				{
@@ -22,9 +16,17 @@ module.exports = api => {
 					loose: false,
 					useBuiltIns: "usage",
 					corejs: "3",
+					// modules: "commonjs",
+				},
+			],
+			[ '@babel/preset-react',
+				{
+					runtime: "automatic"
 				}
 			],
-			[ "@babel/preset-typescript" ]
+			[ "@babel/preset-typescript" ],
+			// [ "@babel/preset-polyfill" ], regenerator runtime
 		],
+		babelrcRoots: ['../*']
 	}
 }

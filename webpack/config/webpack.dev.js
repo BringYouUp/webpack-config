@@ -1,41 +1,39 @@
-const { resolve } = require('path')
-const path = require("path")
-const webpack = require("webpack")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const { merge } = require("webpack-merge")
+import path from "path"
+import webpack from "webpack"
+import { merge } from "webpack-merge"
 
-const commonConfig = require("./webpack.common.js") 
-const { DEVELOPMENT, PROJECT_ROOT, SOURCE_DIRECTORY, BUILD_DIRECTORY} = require('../webpack-consts.js')
-const { getAppropriateFilename } = require("../utils/index.ts")
+import commonConfig from "./webpack.common"
+import { DEVELOPMENT, PROJECT_ROOT, SOURCE_DIRECTORY, BUILD_DIRECTORY} from '../webpack-consts'
+import * as modules from "../modules/index";
 
-const getDevelopmentAppropriateFilename = getAppropriateFilename(true)
-
-module.exports = merge(commonConfig, {
-	mode: DEVELOPMENT,
-	target: "web",
-	watchOptions: {
-		ignored: /node_modules/,
-	},
-	devServer: {
-		static: {
-			directory: path.join(__dirname, "/public/"),
+const webpackDevConfig = merge(
+	commonConfig,
+	{
+		mode: DEVELOPMENT,
+		target: "web",
+		watchOptions: {
+			ignored: /node_modules/,
 		},
-		// static: true,
-		// historyApiFallback: true,
-		// port: 9750,
-		// open: true,
-		// client: {
-		// 	overlay: true,
-		// },
+		devServer: {
+			static: {
+				directory: path.join(__dirname, "/public/"),
+			},
+			// static: true,
+			// historyApiFallback: true,
+			// open: true,
+			// client: {
+			// 	overlay: true,
+			// },
+		},
+		cache: {
+			type: "filesystem"
+		},
+		devtool: 'eval-cheap-module-source-map',
+		plugins: [
+			new webpack.HotModuleReplacementPlugin(),
+		],
 	},
-	cache: {
-		type: "filesystem"
-	},
-	devtool: 'source-map',
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new MiniCssExtractPlugin({
-			filename: getDevelopmentAppropriateFilename('css'),
-		}),
-	],
-})
+	modules.loadDevCSS()
+ )
+
+export default webpackDevConfig
