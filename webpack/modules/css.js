@@ -21,10 +21,6 @@ const loadByPostCssLoader = ({ sourceMap = false } = { sourceMap: false }) => ({
 	}
 })
 
-const loadBySassLoader = () => ({
-	loader: "sass-loader",
-})
-
 export const loadDevCSS = () => ({
 	module: {
 		rules: [
@@ -34,8 +30,7 @@ export const loadDevCSS = () => ({
 				use: [
 					loadByStyleLoader(),
 					loadByCssLoader({sourceMap: true}),
-					loadByPostCssLoader({sourceMap: true}),
-					loadBySassLoader()
+					loadByPostCssLoader({sourceMap: true})
 				]
 			}
 		]
@@ -51,8 +46,7 @@ export const loadProdCSS = () => ({
 				use: [
 					MiniCssExtractPlugin.loader,
 					loadByCssLoader({sourceMap: false}),
-					loadByPostCssLoader({sourceMap: false}),
-					loadBySassLoader()
+					loadByPostCssLoader({sourceMap: false})
 				]
 			}
 		]

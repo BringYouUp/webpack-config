@@ -1,10 +1,9 @@
 const { resolve } = require('path')
-const { path: PROJECT_ROOT } = require('app-root-path')
-
+const PROJECT_ROOT = __dirname.split('\/').slice(0, -2).join('\/')
 exports.PROJECT_ROOT = PROJECT_ROOT
 exports.SOURCE_DIRECTORY = resolve(PROJECT_ROOT, './src')
 exports.BUILD_DIRECTORY = resolve(PROJECT_ROOT, './build')
-exports.HOST = "192.168.43.222"
+exports.HOST = "localhost"
 exports.PORT = 9750
 exports.DEVELOPMENT = "development"
 exports.PRODUCTION = "production"

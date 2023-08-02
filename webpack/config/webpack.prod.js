@@ -1,5 +1,4 @@
 import { resolve } from 'path'
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
 import { CleanWebpackPlugin } from "clean-webpack-plugin"
 import { merge } from "webpack-merge"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
@@ -41,8 +40,8 @@ const webpackProdConfig = merge(
 			})
 		],
 		optimization : {
-	  	// minimize: true,
-	  	// minimizer: [ new TerserPlugin() ],
+	  	minimize: true,
+	  	minimizer: [ new TerserPlugin() ],
 	  	emitOnErrors: true,
 	  	removeEmptyChunks: true,
 	  	mergeDuplicateChunks: true,

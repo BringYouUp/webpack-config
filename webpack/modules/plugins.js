@@ -14,7 +14,7 @@ export const connectCommonPlugins = () => ({
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: resolve(PROJECT_ROOT, "index.html"),
-			favicon: resolve(PROJECT_ROOT, "./src/img/title-icon.png"),
+			// favicon: resolve(PROJECT_ROOT, "./src/img/title-icon.png"),
 			title: 'webpack-config',
 			minify: {
 				collapseWhitespace: true
